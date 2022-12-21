@@ -1,0 +1,49 @@
+<table class="adsense">
+  <tr *ngIf="!isMobileDevice">
+    <td>
+      <!-- Vertical ad -->
+      <ng-adsense *ngIf="useVerticle" [adClient]="'ca-pub-3352789819896964'" [adSlot]="9746586835"
+        [display]="'inline-block'" [width]="230" [height]="100">
+      </ng-adsense>
+
+      <!-- Horizontal ad -->
+      <ng-adsense *ngIf="!useVerticle" [adClient]="'ca-pub-3352789819896964'" [adSlot]="1520668958"
+        [display]="'inline-block'" [width]="800" [height]="100">
+      </ng-adsense>
+    </td>
+  </tr>
+  <tr *ngIf="isMobileDevice">
+    <td>
+      <ng-adsense [adClient]="'ca-pub-3352789819896964'" [adSlot]="9746586835" [display]="'inline-block'" [width]="312"
+        [height]="250">
+      </ng-adsense>
+    </td>
+  </tr>
+</table>
+
+<div *ngIf="!useTable">
+  <div class="adsense" *ngIf="!isMobileDevice">
+
+    <!-- Vertical ad -->
+    <ng-adsense *ngIf="useVerticle" [adClient]="'ca-pub-3352789819896964'" [adSlot]="9746586835"
+      [display]="'inline-block'" [width]="230" [height]="130">
+    </ng-adsense>
+
+    <!-- Horizontal ad -->
+    <ng-adsense *ngIf="!useVerticle" [adClient]="'ca-pub-3352789819896964'" [adSlot]="1520668958"
+      [display]="'inline-block'" [width]="860" [height]="90">
+    </ng-adsense>
+  </div>
+
+  <!--
+  <div class="adsense" *ngIf="isMobileDevice">
+      <ng-adsense
+          [adClient]="'ca-pub-3352789819896964'"
+          [adSlot]="9746586835"
+          [display]="'inline-block'"
+          [width]="336"
+          [height]="224">
+      </ng-adsense>
+  </div>
+  -->
+</div>

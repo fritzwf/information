@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container-fluid">
+    <!-- <a class="navbar-brand" href="#">Info</a> -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown"
+      aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Select Info Type
+          </a>
+          <ul class="dropdown-menu">
+            <li><a routerLink="/celeb-component" routerLinkActive="active">Celebrity</a></li>
+            <li><a routerLink="/cars-component" routerLinkActive="active">Cars</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<table class="center">
+  <tr>
+    <td>
+      <span *ngIf="isMobile">
+        <app-adsense [isMobileDevice]="isMobile"></app-adsense>
+      </span>
+      <div *ngIf="!isMobile">
+        <app-adsense [useTable]="true" [useVerticle]="false"></app-adsense>
+      </div>
+    </td>
+  </tr>
+</table>
