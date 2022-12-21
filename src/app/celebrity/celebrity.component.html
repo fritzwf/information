@@ -1,0 +1,136 @@
+<app-header></app-header>
+<ngx-spinner></ngx-spinner>
+
+<table class="center">
+  <tr>
+    <td>
+      <h1>Celebrity Net Worth</h1>
+    </td>
+  </tr>
+</table>
+
+<table id="celebrity-get" class="center">
+  <tr>
+    <td>
+      <form>
+        <input type="text" #celebrity placeholder="Enter name">&nbsp;&nbsp;&nbsp;
+        <span>
+          <button class="button" (click)="getCeleb(celebrity.value)">Net Worth</button>
+        </span>
+      </form>
+    </td>
+  </tr>
+</table>
+
+<br><br>
+<div *ngIf="celebFound && !isMobile">
+  <table id="celebrity-get" class="center mainItemTable">
+    <tr>
+      <th> Name </th>
+      <th> Net Worth </th>
+      <th> Occupation </th>
+      <th> Age </th>
+      <th> Height </th>
+      <th> Nationality </th>
+      <th> Birthday </th>
+      <th> Death </th>
+      <th> Gender </th>
+    </tr>
+    <tr>
+      <td>
+        {{ celeb?.name || notFound }}
+      </td>
+      <td>
+        {{ (celeb?.net_worth | currency:'USD':'symbol':"1.0-2") || notFound }}
+      </td>
+      <td>
+        {{ celeb?.occupation ? celeb.occupation[0] : '' || notFound }}
+      </td>
+      <td>
+        {{ celeb?.age || notFound }}
+      </td>
+      <td>
+        {{ (celeb?.height | meterToFeet) || notFound}}
+      </td>
+      <td>
+        {{ celeb?.nationality || notFound }}
+      </td>
+      <td>
+        {{ celeb?.birthday || notFound }}
+      </td>
+      <td>
+        {{ celeb?.death || notFound }}
+      </td>
+      <td>
+        {{ celeb?.gender || notFound }}
+      </td>
+    </tr>
+  </table>
+</div>
+
+<div *ngIf="celebFound && isMobile">
+  <table id="celebrity-get" class="center mainItemTable">
+    <tr>
+      <th> Name </th>
+      <th> Net Worth </th>
+      <th> Occupation </th>
+      <th> Age </th>
+      <th> Height </th>
+    </tr>
+    <tr class="marginbottom">
+      <td>
+        {{ celeb.name || notFound }}
+      </td>
+      <td>
+        {{ (celeb.net_worth | currency:'USD':'symbol':"1.0-2") || notFound }}
+      </td>
+      <td>
+        {{ celeb?.occupation ? celeb.occupation[0] : '' || notFound }}
+      </td>
+      <td>
+        {{ celeb.age || notFound }}
+      </td>
+      <td>
+        {{ (celeb.height | meterToFeet) || notFound}}
+      </td>
+    </tr>
+    <tr>
+      <th> Nationality </th>
+      <th> Birthday </th>
+      <th> Death </th>
+      <th> Gender </th>
+    </tr>
+    <tr>
+      <td>
+        {{ celeb.nationality || notFound }}
+      </td>
+      <td>
+        {{ celeb.birthday || notFound }}
+      </td>
+      <td>
+        {{ celeb.death || notFound }}
+      </td>
+      <td>
+        {{ celeb.gender || notFound }}
+      </td>
+    </tr>
+  </table>
+</div>
+<div [hidden]="!celebNotFound">
+  <table id="celebrity-Not-Found" class="center">
+    <tr>
+      <td>
+        <h2 class="large">Net worth not found</h2>
+      </td>
+    </tr>
+    <tr>
+    </tr>
+  </table>
+</div>
+<table *ngIf="!isMobile" id="celebrity-get" class="center">
+  <tr>
+    <td>
+      <app-adsense [useTable]="true" [isMobileDevice]="true"></app-adsense>
+    </td>
+  </tr>
+</table>
