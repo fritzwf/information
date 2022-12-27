@@ -4,12 +4,22 @@
 <table class="center">
   <tr>
     <td>
-      <h1>Celebrity Net Worth</h1>
+      <span *ngIf="isMobile">
+        <app-adsense [isMobileDevice]="isMobile"></app-adsense>
+      </span>
+      <div *ngIf="!isMobile">
+        <app-adsense [useTable]="true"></app-adsense>
+      </div>
     </td>
   </tr>
 </table>
 
 <table id="celebrity-get" class="center">
+  <tr>
+    <td>
+      <h1>Celebrity Net Worth</h1>
+    </td>
+  </tr>
   <tr>
     <td>
       <form>
@@ -23,8 +33,41 @@
 </table>
 
 <br><br>
-<div *ngIf="celebFound && !isMobile">
-  <table id="celebrity-get" class="center mainItemTable">
+<div *ngIf="celebFound" class="table-responsive w-75 mx-auto">
+<table class="table">
+	<thead>
+		<tr>
+			<th scope="col"> Name </th>
+			<th scope="col"> Net Worth </th>
+			<th scope="col"> Occupation </th>
+			<th scope="col"> Age </th>
+      <th scope="col"> Height </th>
+      <th scope="col"> Nationality </th>
+      <th scope="col"> Birthday </th>
+      <th scope="col"> Death </th>
+      <th scope="col"> Gender </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let celeb of celebs; index as i">
+			<td>
+				<img src="./assets/money-bag.png"	/>
+				{{ celeb?.name || notFound }}
+			</td>
+			<td class="table-success"> {{ (celeb?.net_worth | currency:'USD':true:"1.0-2") || notFound }} </td>
+			<td> {{ celeb?.occupation ? celeb.occupation[0] : '' || notFound }} </td>
+      <td> {{ celeb?.age || notFound }} </td>
+      <td> {{ (celeb?.height | meterToFeet) || notFound}} </td>
+      <td> {{ celeb?.nationality || notFound }} </td>
+      <td> {{ celeb?.birthday || notFound }} </td>
+      <td> {{ celeb?.death || notFound }} </td>
+      <td> {{ celeb?.gender || notFound }} </td>
+		</tr>
+	</tbody>
+</table>
+
+
+  <!-- <table id="celebrity-get" class="center mainItemTable">
     <tr>
       <th> Name </th>
       <th> Net Worth </th>
@@ -37,38 +80,11 @@
       <th> Gender </th>
     </tr>
     <tr>
-      <td>
-        {{ celeb?.name || notFound }}
-      </td>
-      <td>
-        {{ (celeb?.net_worth | currency:'USD':'symbol':"1.0-2") || notFound }}
-      </td>
-      <td>
-        {{ celeb?.occupation ? celeb.occupation[0] : '' || notFound }}
-      </td>
-      <td>
-        {{ celeb?.age || notFound }}
-      </td>
-      <td>
-        {{ (celeb?.height | meterToFeet) || notFound}}
-      </td>
-      <td>
-        {{ celeb?.nationality || notFound }}
-      </td>
-      <td>
-        {{ celeb?.birthday || notFound }}
-      </td>
-      <td>
-        {{ celeb?.death || notFound }}
-      </td>
-      <td>
-        {{ celeb?.gender || notFound }}
-      </td>
     </tr>
-  </table>
+  </table> -->
 </div>
 
-<div *ngIf="celebFound && isMobile">
+<!-- <div *ngIf="celebFound && isMobile">
   <table id="celebrity-get" class="center mainItemTable">
     <tr>
       <th> Name </th>
@@ -127,6 +143,7 @@
     </tr>
   </table>
 </div>
+ -->
 <table *ngIf="!isMobile" id="celebrity-get" class="center">
   <tr>
     <td>

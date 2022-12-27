@@ -14,8 +14,8 @@ import { AppComponent } from './app.component';
 import { CarsComponent } from './cars/cars.component';
 import { CelebrityComponent } from './celebrity/celebrity.component';
 import { HeaderComponent } from './header/header.component';
-import { MeterToFeetPipe } from './meter-to-feet.pipe';
 import { HomeComponent } from './home/home.component';
+import { MeterToFeetPipe } from './meter-to-feet.pipe';
 
 @NgModule({
   declarations: [
@@ -25,7 +25,7 @@ import { HomeComponent } from './home/home.component';
     CelebrityComponent,
     HeaderComponent,
     MeterToFeetPipe,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
