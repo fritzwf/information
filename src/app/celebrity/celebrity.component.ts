@@ -15,7 +15,7 @@ export class CelebrityComponent implements OnInit {
   celebFound = false;
   celebNotFound = false;
   celebrity = "";
-  celeb: any;
+  celebs: any[] | undefined;
   notFound = "n/a";
 
   constructor(
@@ -39,7 +39,7 @@ export class CelebrityComponent implements OnInit {
       if (result) {
         this.celebrity = "";
         this.celebFound = true;
-        this.celeb = result;
+        this.celebs = [result];
       } else {
         this.celebNotFound = true;
       }
