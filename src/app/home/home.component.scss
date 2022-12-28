@@ -1,0 +1,46 @@
+.header-drop-down {
+  outline: none !important;
+  background-color: #e1e1e1 !important;
+  text-align: center;
+  // outline-style: solid;
+  border: 1px solid #adacac;
+}
+
+.select-menu {
+  font-size: 2.5rem !important;
+  color: #363232 !important;
+  font-family:verdana !important;
+  font-size: 1rem !important;
+  /* font-size: 1.0vh;   */
+  /* color: #463E3F; */
+  text-align: center;
+  text-decoration:none !important;
+  border: 0 !important;
+  border-color: transparent !important;
+  background-color: transparent !important;
+  outline: none !important;
+}
+
+.nav-button {
+  background-color: #e1e1e1;
+  border: none !important;
+  outline: none !important;
+  border-bottom: none !important;
+  padding: 5px 20px;
+  color: #616161 !important;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 8px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.3s;
+}
+
+.nav-button:hover {
+  border: none !important;
+  outline: none !important;
+  border-bottom: none !important;
+  text-decoration: none;
+  color: #c7a87c !important;
+}

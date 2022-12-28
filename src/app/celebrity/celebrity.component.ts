@@ -5,23 +5,27 @@ import { Component, OnInit } from '@angular/core';
 
 import { NinjaApiService } from '../ninja-api.service';
 
+const IMDB = "https://www.imdb.com/find?q=";
+
 @Component({
   selector: 'app-celebrity',
   templateUrl: './celebrity.component.html',
   styleUrls: ['./celebrity.component.scss']
 })
 export class CelebrityComponent implements OnInit {
+
   isMobile = false;
   celebFound = false;
   celebNotFound = false;
-  celebrity = "";
+  celeb:any = "";
   celebs: any[] | undefined;
   notFound = "n/a";
+  imdbUrl = "";
 
   constructor(
     private deviceService: DeviceDetectorService,
     private spinner: NgxSpinnerService,
-    private celebrityService: NinjaApiService
+    private ninjaService: NinjaApiService
   ) { }
 
   ngOnInit() {
@@ -32,12 +36,13 @@ export class CelebrityComponent implements OnInit {
 
   getCeleb(celebrity: string) {
     this.spinner.show();
-    this.celebrityService.getCelebrity(celebrity).then((result: any) => {
-      // console.warn("Celeb: " + JSON.stringify(result));
+    this.ninjaService.getCelebrity(celebrity).then((result: any) => {
+      console.warn("Celeb: " + JSON.stringify(result));
       this.celebNotFound = false;
       this.celebFound = false;
       if (result) {
-        this.celebrity = "";
+        this.celeb = result;
+        this.imdbUrl = IMDB + result.name;
         this.celebFound = true;
         this.celebs = [result];
       } else {
