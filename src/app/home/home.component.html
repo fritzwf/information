@@ -1,5 +1,29 @@
-<app-header></app-header>
 <!-- <router-outlet></router-outlet> -->
+<nav class="navbar navbar-expand navbar-dark">
+  <div class="container-fluid">
+    <!-- <a class="navbar-brand" href="#">Info</a> -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown"
+      aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Select Information Type
+          </a>
+          <ul class="dropdown-menu header-drop-down navbar-brand">
+            <span>
+              <li class="select-menu"><button class="nav-button" (click)="celebrity()">Celebrity</button></li>
+              <li><hr class="dropdown-divider"></li>
+              <li class="select-menu"><button class="nav-button" (click)="automotive()">Automotive</button></li>
+            </span>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
 <table class="center">
   <tr>
@@ -13,3 +37,20 @@
     </td>
   </tr>
 </table>
+
+<div *ngIf="greeting" class="center">
+  <table class="center">
+    <tr>
+      <td>
+        <H1>Information at your fingertips</H1>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<div *ngIf="celeb">
+  <app-celebrity></app-celebrity>
+</div>
+<div *ngIf="cars">
+  <app-cars></app-cars>
+</div>

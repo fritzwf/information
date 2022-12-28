@@ -1,4 +1,131 @@
-<app-header></app-header>
 <ngx-spinner></ngx-spinner>
 
-<h1>Cars</h1>
+<table id="cars-get" class="center">
+  <tr>
+    <td>
+      <h1>Search Automotive</h1>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <form>
+        <input type="text" #car placeholder="Enter name">&nbsp;&nbsp;&nbsp;
+        <span>
+          <button class="button" (click)="getCar(car.value)">Vehicle</button>
+        </span>
+      </form>
+    </td>
+  </tr>
+</table>
+
+<div *ngIf="cars.length">
+  <table class="table table-responsive w-75 mx-auto">
+    <thead>
+      <tr>
+        <th scope="col"> MODEL </th>
+        <th scope="col"> MAKE </th>
+        <th scope="col"> CITY MPG </th>
+        <th scope="col"> HIGHWAY MPG </th>
+        <th scope="col"> COMBINATION MPG </th>
+        <th scope="col"> CLASS </th>
+        <th scope="col"> CYLINDERS </th>
+        <th scope="col"> DISPLACEMENT </th>
+        <th scope="col"> DRIVE </th>
+        <th scope="col"> FUEL </th>
+        <th scope="col"> TRANSMISSION </th>
+        <th scope="col"> YEAR </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let car of cars; index as i">
+        <td>
+          <img width="20" height="20" src="./assets/car.png"	/>
+          {{ car?.model || notFound }}
+        </td>
+        <td> {{ car?.make || notFound }} </td>
+        <td> {{ car?.city_mpg || notFound }} </td>
+        <td> {{ car?.highway_mpg || notFound }} </td>
+        <td> {{ car?.combination_mpg || notFound}} </td>
+        <td> {{ car?.class || notFound }} </td>
+        <td> {{ car?.cylinders || notFound }} </td>
+        <td> {{ car?.displacement || notFound }} </td>
+        <td> {{ car?.drive || notFound }} </td>
+        <td> {{ car?.fuel_type || notFound }} </td>
+        <td> {{ car?.transmission || notFound }} </td>
+        <td> {{ car?.year || notFound }} </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<table *ngIf="carNotFound" class="center">
+  <tr> <td> <h4>Vehicle not found.</h4> </td> </tr>
+</table>
+
+<!-- <div *ngIf="celebFound && isMobile">
+  <table id="celebrity-get" class="center mainItemTable">
+    <tr>
+      <th> Name </th>
+      <th> Net Worth </th>
+      <th> Occupation </th>
+      <th> Age </th>
+      <th> Height </th>
+    </tr>
+    <tr class="marginbottom">
+      <td>
+        {{ celeb.name || notFound }}
+      </td>
+      <td>
+        {{ (celeb.net_worth | currency:'USD':'symbol':"1.0-2") || notFound }}
+      </td>
+      <td>
+        {{ celeb?.occupation ? celeb.occupation[0] : '' || notFound }}
+      </td>
+      <td>
+        {{ celeb.age || notFound }}
+      </td>
+      <td>
+        {{ (celeb.height | meterToFeet) || notFound}}
+      </td>
+    </tr>
+    <tr>
+      <th> Nationality </th>
+      <th> Birthday </th>
+      <th> Death </th>
+      <th> Gender </th>
+    </tr>
+    <tr>
+      <td>
+        {{ celeb.nationality || notFound }}
+      </td>
+      <td>
+        {{ celeb.birthday || notFound }}
+      </td>
+      <td>
+        {{ celeb.death || notFound }}
+      </td>
+      <td>
+        {{ celeb.gender || notFound }}
+      </td>
+    </tr>
+  </table>
+</div>
+<div [hidden]="!celebNotFound">
+  <table id="celebrity-Not-Found" class="center">
+    <tr>
+      <td>
+        <h2 class="large">Net worth not found</h2>
+      </td>
+    </tr>
+    <tr>
+    </tr>
+  </table>
+</div>
+ -->
+<!-- <table *ngIf="!isMobile" id="celebrity-get" class="center">
+  <tr>
+    <td>
+      <app-adsense [useTable]="true" [isMobileDevice]="true"></app-adsense>
+    </td>
+  </tr>
+</table> -->

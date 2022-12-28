@@ -9,6 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   isMobile = false;
+  greeting = true;
+  celeb = false;
+  cars = false;
 
   constructor(
     private deviceService: DeviceDetectorService
@@ -19,4 +22,21 @@ export class HomeComponent implements OnInit {
       this.isMobile = true;
     }
   }
+
+  private compInit() {
+    this.celeb = false;
+    this.cars = false;
+    this.greeting = false;
+  }
+
+  celebrity() {
+    this.compInit();
+    this.celeb = true;
+  }
+
+  automotive() {
+    this.compInit();
+    this.cars = true
+  }
+
 }
