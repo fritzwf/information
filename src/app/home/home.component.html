@@ -14,9 +14,13 @@
           </a>
           <ul class="dropdown-menu header-drop-down navbar-brand">
             <span>
+              <li class="select-menu"><button class="nav-button" (click)="automotive()">Automotive</button></li>
+              <li><hr class="dropdown-divider"></li>
+              <li class="select-menu"><button class="nav-button" (click)="calories()">Calories</button></li>
+              <li><hr class="dropdown-divider"></li>
               <li class="select-menu"><button class="nav-button" (click)="celebrity()">Celebrity</button></li>
               <li><hr class="dropdown-divider"></li>
-              <li class="select-menu"><button class="nav-button" (click)="automotive()">Automotive</button></li>
+              <li class="select-menu"><button class="nav-button" (click)="history()">History</button></li>
             </span>
           </ul>
         </li>
@@ -54,3 +58,11 @@
 <div *ngIf="cars">
   <app-cars></app-cars>
 </div>
+<div *ngIf="calorie">
+  <app-calories></app-calories>
+</div>
+<div *ngIf="hist">
+  <app-history></app-history>
+</div>
+
+
