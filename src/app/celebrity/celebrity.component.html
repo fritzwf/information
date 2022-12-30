@@ -3,7 +3,7 @@
 <table id="celebrity-get" class="center">
   <tr>
     <td>
-      <h1>Search Net Worth</h1>
+      <h1>Search Celebrity</h1>
     </td>
   </tr>
   <tr>
@@ -20,7 +20,7 @@
 
 <div *ngIf="celebFound" class="table-responsive w-75 mx-auto">
   <table class="table">
-    <thead>
+    <thead class="table-dark">
       <tr>
         <th scope="col"> Name </th>
         <th scope="col"> Net Worth </th>
@@ -35,22 +35,21 @@
     </thead>
     <tbody>
       <tr>
-        <td>
-          <span>
-            <a class="sameLine" href="{{ imdbUrl }}" target="_blank">
-              <img src="./assets/money-bag.png"	/>
-              {{ celeb?.name || notFound }}
-            </a>
-          </span>
+        <td class="table-info">
+          <a href="{{ imdbUrl }}" target="_blank">
+            {{ celeb?.name || notFound }}
+          </a>
         </td>
-        <td class="table-success"> {{ (celeb?.net_worth | currency:'USD':"symbol":"1.0-2") || notFound }} </td>
-        <td> {{ celeb?.occupation ? celeb?.occupation[0] : '' || notFound }} </td>
-        <td> {{ celeb?.age || notFound }} </td>
-        <td> {{ (celeb?.height | meterToFeet) || notFound}} </td>
-        <td> {{ celeb?.nationality || notFound }} </td>
-        <td> {{ celeb?.birthday || notFound }} </td>
-        <td> {{ celeb?.death || notFound }} </td>
-        <td> {{ celeb?.gender || notFound }} </td>
+        <td class="table-success">
+          {{ (celeb?.net_worth | currency:'USD':"symbol":"1.0-2") || notFound }}
+        </td>
+        <td class="table-primary"> {{ celeb?.occupation ? celeb?.occupation[0] : '' || notFound }} </td>
+        <td class="table-primary"> {{ celeb?.age || notFound }} </td>
+        <td class="table-primary"> {{ (celeb?.height | meterToFeet) || notFound}} </td>
+        <td class="table-primary"> {{ celeb?.nationality || notFound }} </td>
+        <td class="table-primary"> {{ celeb?.birthday || notFound }} </td>
+        <td class="table-primary"> {{ celeb?.death || notFound }} </td>
+        <td class="table-primary"> {{ celeb?.gender || notFound }} </td>
       </tr>
     </tbody>
   </table>
