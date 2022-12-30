@@ -20,7 +20,7 @@
 
 <div *ngIf="cars.length">
   <table class="table table-responsive w-75 mx-auto">
-    <thead>
+    <thead class="table-dark">
       <tr>
         <th scope="col"> MODEL </th>
         <th scope="col"> MAKE </th>
@@ -36,10 +36,10 @@
         <th scope="col"> YEAR </th>
       </tr>
     </thead>
-    <tbody>
+    <tbody class="table-primary">
       <tr *ngFor="let car of cars; index as i">
         <td>
-          <img width="20" height="20" src="./assets/car.png"	/>
+          <!-- <img width="20" height="20" src="./assets/car.png"	/> -->
           {{ car?.model || notFound }}
         </td>
         <td> {{ car?.make || notFound }} </td>
