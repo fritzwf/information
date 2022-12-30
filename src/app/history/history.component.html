@@ -1,0 +1,56 @@
+<ngx-spinner></ngx-spinner>
+
+<table id="activity-cals" class="center">
+  <tr>
+    <td>
+      <h1>Search History</h1>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <form>
+        <input type="text" #history placeholder="Enter event e.g. roman empire">&nbsp;&nbsp;&nbsp;
+        <span>
+          <button class="button" (click)="getHistory(history.value)">History</button>
+        </span>
+      </form>
+    </td>
+  </tr>
+</table>
+
+<div *ngIf="hist.length" class="table-responsive w-75 mx-auto">
+  <table class="table">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col"> Event </th>
+        <th scope="col"> Day </th>
+        <th scope="col"> Month </th>
+        <th scope="col"> Year </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let event of hist; index as i">
+        <td class="table-primary"> {{ event?.event || notFound}} </td>
+        <td class="table-info"> {{ event?.day || notFound }} </td>
+        <td class="table-info"> {{ event?.month || notFound }} </td>
+        <td class="table-info"> {{ event?.year || notFound }} </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<table *ngIf="histNotFound" class="center">
+  <tr>
+    <td>
+      <h4>Event not found.</h4>
+    </td>
+  </tr>
+</table>
+
+<!-- <table *ngIf="!isMobile" id="celebrity-get" class="center">
+  <tr>
+    <td>
+      <app-adsense [useTable]="true" [isMobileDevice]="true"></app-adsense>
+    </td>
+  </tr>
+</table> -->

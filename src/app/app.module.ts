@@ -16,6 +16,9 @@ import { CelebrityComponent } from './celebrity/celebrity.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { MeterToFeetPipe } from './meter-to-feet.pipe';
+import { CaloriesComponent } from './calories/calories.component';
+import { InflationComponent } from './inflation/inflation.component';
+import { HistoryComponent } from './history/history.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +29,9 @@ import { MeterToFeetPipe } from './meter-to-feet.pipe';
     HeaderComponent,
     MeterToFeetPipe,
     HomeComponent,
+    CaloriesComponent,
+    InflationComponent,
+    HistoryComponent,
   ],
   imports: [
     BrowserModule,

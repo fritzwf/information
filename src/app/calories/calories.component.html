@@ -1,0 +1,56 @@
+<ngx-spinner></ngx-spinner>
+
+<table id="activity-cals" class="center">
+  <tr>
+    <td>
+      <h1>Search Calories Burned</h1>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <form>
+        <input type="text" #cal placeholder="Enter activity e.g. cycling">&nbsp;&nbsp;&nbsp;
+        <span>
+          <button class="button" (click)="getCalories(cal.value)">Activity</button>
+        </span>
+      </form>
+    </td>
+  </tr>
+</table>
+
+<div *ngIf="cals.length" class="table-responsive w-75 mx-auto">
+  <table class="table">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col"> Activity </th>
+        <th scope="col"> Calories Per Hour </th>
+        <th scope="col"> Duration Minutes </th>
+        <th scope="col"> Total Calories </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cal of cals; index as i">
+        <td class="table-info"> {{ cal?.name || notFound }} </td>
+        <td class="table-success"> {{ cal?.calories_per_hour || notFound }} </td>
+        <td class="table-primary"> {{ cal?.duration_minutes || notFound }} </td>
+        <td class="table-primary"> {{ cal?.total_calories || notFound}} </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<table *ngIf="calsNotFound" class="center">
+  <tr>
+    <td>
+      <h4>Activity not found.</h4>
+    </td>
+  </tr>
+</table>
+
+<!-- <table *ngIf="!isMobile" id="celebrity-get" class="center">
+  <tr>
+    <td>
+      <app-adsense [useTable]="true" [isMobileDevice]="true"></app-adsense>
+    </td>
+  </tr>
+</table> -->

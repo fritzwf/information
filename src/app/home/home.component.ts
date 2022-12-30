@@ -12,6 +12,8 @@ export class HomeComponent implements OnInit {
   greeting = true;
   celeb = false;
   cars = false;
+  calorie = false;
+  hist = false;
 
   constructor(
     private deviceService: DeviceDetectorService
@@ -27,6 +29,8 @@ export class HomeComponent implements OnInit {
     this.celeb = false;
     this.cars = false;
     this.greeting = false;
+    this.calorie = false;
+    this.hist = false;
   }
 
   celebrity() {
@@ -39,4 +43,13 @@ export class HomeComponent implements OnInit {
     this.cars = true
   }
 
+  calories() {
+    this.compInit();
+    this.calorie = true
+  }
+
+  history() {
+    this.compInit();
+    this.hist = true
+  }
 }

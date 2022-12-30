@@ -37,7 +37,7 @@ export class CelebrityComponent implements OnInit {
   getCeleb(celebrity: string) {
     this.spinner.show();
     this.ninjaService.getCelebrity(celebrity).then((result: any) => {
-      console.warn("Celeb: " + JSON.stringify(result));
+      // console.warn("Celeb: " + JSON.stringify(result));
       this.celebNotFound = false;
       this.celebFound = false;
       if (result) {
@@ -50,7 +50,7 @@ export class CelebrityComponent implements OnInit {
       }
       this.spinner.hide();
     }).catch((err: any) => {
-      console.error("Net worth retrieval failed.");
+      console.error("Celebrity retrieval failed.");
     });
 
     // Timeout if the BE gets held up.
