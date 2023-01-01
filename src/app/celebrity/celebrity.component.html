@@ -10,15 +10,15 @@
     <td>
       <form>
         <span>
-          <input class="get-input" type="text" #celebrity placeholder="Enter name .e.g elon musk">
-          <button class="input-button" (click)="getCeleb(celebrity.value)">Celebrity</button>
+          <input class="get-input" type="text" #cele placeholder="Enter name .e.g elon musk">
+          <button class="input-button" (click)="getCeleb(cele.value)">Celebrity</button>
         </span>
       </form>
     </td>
   </tr>
 </table>
 
-<div *ngIf="celebFound" class="table-responsive w-75 mx-auto">
+<div *ngIf="celeb" class="table-responsive w-75 mx-auto">
   <table class="table">
     <thead class="table-dark">
       <tr>
@@ -43,7 +43,7 @@
         <td class="table-success">
           {{ (celeb?.net_worth | currency:'USD':"symbol":"1.0-2") || notFound }}
         </td>
-        <td class="table-primary"> {{ celeb?.occupation ? celeb?.occupation[0] : '' || notFound }} </td>
+        <td class="table-primary"> {{ celeb?.occupation ? celeb?.occupation[0] : notFound }} </td>
         <td class="table-primary"> {{ celeb?.age || notFound }} </td>
         <td class="table-primary"> {{ (celeb?.height | meterToFeet) || notFound}} </td>
         <td class="table-primary"> {{ celeb?.nationality || notFound }} </td>
@@ -56,7 +56,7 @@
 </div>
 
 <table *ngIf="celebNotFound" class="center">
-  <tr> <td> <h4>Celebrity not found.</h4> </td> </tr>
+  <tr> <td> <h5>Celebrity not found.</h5> </td> </tr>
 </table>
 
   <!-- <table id="celebrity-get" class="center mainItemTable">

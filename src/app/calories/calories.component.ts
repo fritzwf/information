@@ -30,18 +30,21 @@ export class CaloriesComponent implements OnInit {
   }
 
   getCalories(activity: string) {
-    this.spinner.show();
-    this.ninjaService.getCalories(activity).then((result: any) => {
-      // console.warn("Calories: " + JSON.stringify(result));
-      this.calsNotFound = false;
-      if (result) {
-        this.cals = result;
-        this.calsNotFound = result.length ? false : true;
-      }
-      this.spinner.hide();
-    }).catch((err: any) => {
-      console.error("Calories retrieval failed.");
-    });
+    if (activity) {
+      this.spinner.show();
+      this.ninjaService.getCalories(activity).then((result: any) => {
+        // console.warn("Calories: " + JSON.stringify(result));
+        this.calsNotFound = false;
+        this.cals = [];
+        if (result) {
+          this.cals = result;
+          this.calsNotFound = result.length ? false : true;
+        }
+        this.spinner.hide();
+      }).catch((err: any) => {
+        console.error("Calories retrieval failed.");
+      });
+    }
 
     // Timeout if the BE gets held up.
     setTimeout(() => {

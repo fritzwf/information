@@ -30,23 +30,25 @@ export class HistoryComponent implements OnInit {
   }
 
   getHistory(activity: string) {
-    this.spinner.show();
-    this.ninjaService.getHistory(activity).then((result: any) => {
-      // console.warn("History: " + JSON.stringify(result));
-      this.histNotFound = false;
-      if (result) {
-        this.hist = result;
-        this.histNotFound = result.length ? false : true;
-      }
-      this.spinner.hide();
-    }).catch((err: any) => {
-      console.error("History retrieval failed.");
-    });
+    if (activity) {
+      this.spinner.show();
+      this.ninjaService.getHistory(activity).then((result: any) => {
+        // console.warn("History: " + JSON.stringify(result));
+        this.histNotFound = false;
+        if (result) {
+          this.hist = result;
+        } else {
+          this.histNotFound = true;
+        }
+        this.spinner.hide();
+      }).catch((err: any) => {
+        console.error("History retrieval failed.");
+      });
 
-    // Timeout if the BE gets held up.
-    setTimeout(() => {
-      this.spinner.hide();
-    }, 15000);
+      // Timeout if the BE gets held up.
+      setTimeout(() => {
+        this.spinner.hide();
+      }, 15000);
+    }
   }
-
 }
