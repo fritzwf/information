@@ -9,9 +9,9 @@
   <tr>
     <td>
       <form>
-        <input type="text" #cal placeholder="Enter activity e.g. cycling">&nbsp;&nbsp;&nbsp;
         <span>
-          <button class="button" (click)="getCalories(cal.value)">Activity</button>
+          <input  class="get-input" type="text" #cal placeholder="Enter activity e.g. cycling">
+          <button class="input-button" (click)="getCalories(cal.value)">Activity</button>
         </span>
       </form>
     </td>

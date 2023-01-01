@@ -9,9 +9,9 @@
   <tr>
     <td>
       <form>
-        <input type="text" #car placeholder="Enter model">&nbsp;&nbsp;&nbsp;
         <span>
-          <button class="button" (click)="getCar(car.value)">Vehicle</button>
+          <input class="get-input"type="text" #car placeholder="Enter model e.g. corolla">
+          <button class="input-button" (click)="getCar(car.value)">Vehicle</button>
         </span>
       </form>
     </td>
