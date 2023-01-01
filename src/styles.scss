@@ -17,6 +17,29 @@ body {
   width: 75%;
 }
 
+table.center {
+  outline: none !important;
+  border: 0 !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+.center, .center tr, .center th, .center td { border: none; }
+
+table.right {
+  float: right;
+  //margin-right: auto !important;
+  //outline: none !important;
+}
+.right, .right tr, .right th, .right td { border: none; }
+
+table.left {
+  margin-left: auto;
+  margin-right: auto;
+  float: left;
+  outline: none !important;
+}
+.left, .left tr, .left th, .left td { border: none; }
+
 .title-font {
   font: Arial !important;
   font-weight: normal !important;
@@ -24,5 +47,77 @@ body {
   font: bold !important;
 }
 
+span {
+  padding-left: 8px !important;
+}
+
+.input-button {
+  /* background-color: #FBB117; */
+  background-color: #cccccc;
+  border: none !important;
+  outline: none !important;
+  border-bottom: none !important;
+  /* color: #463E3F; */
+  color: #463E3F !important;
+  padding: 8px 20px !important;
+  text-align: center;
+  text-decoration: none;
+  // display: inline !important;
+  // display: display-inside;
+  // padding-left: 2px !important;
+  font-size: 16px;
+  border-radius: 18px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.3s;
+}
+
+.input-button:hover {
+  background-color: #797268;
+  color: #b8860b;
+}
+
+.input-button:visited {
+  text-decoration:none;
+  /*color: #E8A317; */
+  /*color: #4EE2EC; */
+  /*color: #000080; */
+  /*color: #7F462C; */
+  border: none;
+  color: #463E3F;
+  background-color: transparent;
+}
+
+.input-button:active {
+  outline: none !important;
+  border: none;
+}
+
+.input-button:focus {
+  outline: none !important;
+}
+
+.get-input[type=text] {
+  border: 2px solid #a8a8a8 !important;
+  width: 68% !important;
+  padding: 5px 30px;
+  margin: 5px 5px;
+  box-sizing: border-box !important;
+  border: 3px solid #ccc !important;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none !important;
+}
+
+.get-input[type=text]:focus {
+  border: 2px solid #a8a8a8 !important;
+}
+
+.get-input[type=password] {
+  border: 2px solid #cccccc !important;
+}
+
+.get-input[type=password]:focus {
+  border: 2px solid #a8a8a8 !important;
+}
 
 
