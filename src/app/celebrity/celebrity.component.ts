@@ -15,10 +15,9 @@ const IMDB = "https://www.imdb.com/find?q=";
 export class CelebrityComponent implements OnInit {
 
   isMobile = false;
-  celebFound = false;
   celebNotFound = false;
   celeb:any = "";
-  celebs: any[] | undefined;
+  // celebs: any[] | undefined;
   notFound = "n/a";
   imdbUrl = "";
 
@@ -35,28 +34,29 @@ export class CelebrityComponent implements OnInit {
   }
 
   getCeleb(celebrity: string) {
-    this.spinner.show();
-    this.ninjaService.getCelebrity(celebrity).then((result: any) => {
-      // console.warn("Celeb: " + JSON.stringify(result));
-      this.celebNotFound = false;
-      this.celebFound = false;
-      if (result) {
-        this.celeb = result;
-        this.imdbUrl = IMDB + result.name;
-        this.celebFound = true;
-        this.celebs = [result];
-      } else {
-        this.celebNotFound = true;
-      }
-      this.spinner.hide();
-    }).catch((err: any) => {
-      console.error("Celebrity retrieval failed.");
-    });
+    if (celebrity) {
+      this.spinner.show();
+      this.ninjaService.getCelebrity(celebrity).then((result: any) => {
+        // console.warn("Celeb: " + JSON.stringify(result));
+        this.celebNotFound = false;
+        this.celeb = "";
+        if (result) {
+          this.celeb = result;
+          this.imdbUrl = IMDB + result.name;
+          // this.celebs = [result];
+        } else {
+          this.celebNotFound = true;
+        }
+        this.spinner.hide();
+      }).catch((err: any) => {
+        console.error("Celebrity retrieval failed.");
+      });
 
-    // Timeout if the BE gets held up.
-    setTimeout(() => {
-      this.spinner.hide();
-    }, 15000);
+      // Timeout if the BE gets held up.
+      setTimeout(() => {
+        this.spinner.hide();
+      }, 15000);
+    }
   }
 
 }

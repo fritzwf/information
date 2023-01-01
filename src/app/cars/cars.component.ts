@@ -30,22 +30,25 @@ export class CarsComponent implements OnInit {
   }
 
   getCar(car: string) {
-    this.spinner.show();
-    this.ninjaService.getCar(car).then((result: any) => {
-      // console.warn("Car: " + JSON.stringify(result));
-      this.carNotFound = false;
-      if (result) {
-        this.cars = result;
-        this.carNotFound = result.length ? false : true;
-      }
-      this.spinner.hide();
-    }).catch((err: any) => {
-      console.error("Automative retrieval failed.");
-    });
+    if (car) {
+      this.spinner.show();
+      this.ninjaService.getCar(car).then((result: any) => {
+        // console.warn("Car: " + JSON.stringify(result));
+        this.carNotFound = false;
+        if (result) {
+          this.cars = result;
+        } else {
+          this.carNotFound = true;
+        }
+        this.spinner.hide();
+      }).catch((err: any) => {
+        console.error("Automative retrieval failed.");
+      });
 
-    // Timeout if the BE gets held up.
-    setTimeout(() => {
-      this.spinner.hide();
-    }, 15000);
+      // Timeout if the BE gets held up.
+      setTimeout(() => {
+        this.spinner.hide();
+      }, 15000);
+    }
   }
 }
